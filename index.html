@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For You, Always ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600;700&family=Sacramento&display=swap');
+:root{--rose:#d96b85;--deep:#9d385a;--ink:#54313e;--cream:#fff9f7;--pink:#fbe4e9}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 15%,#fff 0,#fff7f8 35%,#f8e4e9 100%);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+.float-heart{position:fixed;bottom:-30px;z-index:0;pointer-events:none;animation:rise linear forwards;opacity:.5;color:#e6a0b2}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:1;max-width:980px;margin:auto;padding:28px 20px 70px}
+.topline{display:flex;justify-content:space-between;align-items:center;color:#b47b8d;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.logo{font-family:'Sacramento',cursive;font-size:29px;color:var(--deep);letter-spacing:0;text-transform:none}
+.hero{text-align:center;padding:58px 0 34px}
+.eyebrow{display:inline-block;background:#fff;border:1px solid #f2d6df;border-radius:999px;padding:8px 15px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b45c78}
+h1{font:600 clamp(42px,7vw,76px)/1.05 'Playfair Display',serif;margin:22px 0 14px;color:#71344c}
+h1 em{font-weight:400;color:var(--rose)}
+.hero p{max-width:520px;margin:0 auto;color:#987481;line-height:1.8;font-size:15px}
+.envelope-wrap{margin:42px auto 0;width:min(330px,90vw);height:220px;position:relative;perspective:900px;cursor:pointer}
+.envelope{position:absolute;inset:30px 0 0;background:#f4b8c9;border-radius:8px;box-shadow:0 18px 38px #d78ca533;overflow:visible}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#f8d2dc,#efa8bd);clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%);border-radius:8px}
+.flap{position:absolute;top:0;left:0;width:100%;height:120px;background:#f8d3de;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s;z-index:4}
+.letter{position:absolute;left:18px;right:18px;top:18px;height:155px;background:#fffaf8;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:15px;transition:transform .8s;box-shadow:0 4px 15px #b95e7b22}
+.letter small{font-size:10px;letter-spacing:.15em;color:#c27c93;text-transform:uppercase}
+.letter strong{font:26px 'Sacramento',cursive;color:#9c4262;margin:8px}
+.seal{position:absolute;top:87px;left:50%;transform:translateX(-50%);z-index:5;width:42px;height:42px;border-radius:50%;background:#c75c7d;color:white;display:grid;place-items:center;box-shadow:0 4px 12px #a4446533;transition:opacity .3s}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .letter{transform:translateY(-95px);z-index:3}
+.envelope.open .seal{opacity:0}
+.open-hint{margin-top:12px;font-size:12px;color:#b47b8d;letter-spacing:.05em}
+.card{background:#fffdfc;border:1px solid #f5e3e8;border-radius:22px;box-shadow:0 18px 60px #bd789018;padding:clamp(22px,5vw,45px);margin:35px auto;max-width:760px}
+.hidden{display:none!important}
+.letter-content{text-align:center;animation:appear .7s ease}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.section-tag{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:#c17b91}
+h2{font:500 clamp(30px,5vw,46px) 'Playfair Display',serif;color:#7e3c56;margin:12px 0 22px}
+.message{font:18px/1.9 'Playfair Display',serif;color:#765361;max-width:570px;margin:0 auto}
+.message p{margin:0 0 15px}
+.signature{font:32px 'Sacramento',cursive;color:#c05b7b;margin-top:20px}
+.btn{border:0;border-radius:999px;background:#c75f80;color:white;padding:13px 23px;box-shadow:0 8px 20px #c75f8030;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #c75f8040}
+.btn.secondary{background:#fff;color:#a74d6c;border:1px solid #f0cbd7;box-shadow:none}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:25px}
+.memory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
+.memory{min-height:145px;border-radius:15px;background:linear-gradient(145deg,#fff0f4,#f8dce6);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:15px;color:#9b5470}
+.memory span{font-size:28px;margin-bottom:8px}.memory b{font:18px 'Playfair Display',serif}.memory small{margin-top:6px;font-size:12px;color:#b47b8d}
+.final-note{background:#fff5f7;border-radius:16px;padding:22px;margin-top:22px;font:italic 19px/1.7 'Playfair Display',serif;color:#99506a}
+footer{text-align:center;color:#bd8a9b;font-size:12px;margin-top:48px;letter-spacing:.05em}
+#musicBtn{position:fixed;right:20px;bottom:20px;z-index:8;background:#fff;border:1px solid #f1d6df;color:#a74d6c;border-radius:50%;width:48px;height:48px;box-shadow:0 8px 25px #b56b8520}
+@media(max-width:600px){.hero{padding-top:45px}.memory-grid{grid-template-columns:1fr}.memory{min-height:105px}.topline{font-size:10px}.card{margin:25px auto}}
+</style>
+</head>
+<body>
+<main>
+  <div class="topline"><span>✦ a little something for you</span><span class="logo">with love ♡</span></div>
+  <section class="hero">
+    <span class="eyebrow">a letter from my heart</span>
+    <h1>For my favorite<br><em>person.</em></h1>
+    <p>Some feelings are too special for an ordinary message.<br>So I made you a little place of your own.</p>
+    <div class="envelope-wrap" id="envelopeWrap" aria-label="Open the letter">
+      <div class="envelope" id="envelope">
+        <div class="letter"><small>sealed with love</small><strong>To my favorite human</strong><small>♡ always & forever ♡</small></div>
+        <div class="flap"></div><div class="seal">♥</div>
+      </div>
+    </div>
+    <div class="open-hint" id="openHint">tap the envelope to open it ↓</div>
+  </section>
+
+  <section class="card hidden" id="letterSection">
+    <div class="letter-content">
+      <div class="section-tag">♡ a few words for you ♡</div>
+      <h2>Hey, you…</h2>
+      <div class="message">
+        <p>I don't think you realize how much happiness you bring into my life.</p>
+        <p>It's the little things—the way you make me smile, the conversations that I never want to end, and the comfort of simply knowing you're there.</p>
+        <p>If I could choose one person to make more memories with, to laugh with, and to keep choosing every day… it would be you.</p>
+        <p>Thank you for being my favorite notification, my favorite thought, and one of my favorite parts of life.</p>
+      </div>
+      <div class="signature">Always yours, ♡</div>
+      <div class="actions"><button class="btn" id="memoriesBtn">A little more… ↓</button></div>
+    </div>
+  </section>
+
+  <section class="card hidden" id="memoriesSection">
+    <div class="letter-content">
+      <div class="section-tag">the little things matter</div><h2>My favorite feelings</h2>
+      <p style="color:#a17b8a">If our story were a scrapbook, these would be some of my favorite pages.</p>
+      <div class="memory-grid">
+        <div class="memory"><span>☁️</span><b>Our conversations</b><small>the ones that feel like home</small></div>
+        <div class="memory"><span>🌷</span><b>Your little ways</b><small>things you don't even notice</small></div>
+        <div class="memory"><span>🌙</span><b>Time together</b><small>ordinary moments, extraordinary memories</small></div>
+      </div>
+      <div class="final-note">“In a world full of people, I'm really glad my path crossed yours.”</div>
+      <div class="actions"><button class="btn" id="surpriseBtn">One last thing ♡</button></div>
+    </div>
+  </section>
+
+  <section class="card hidden" id="surpriseSection">
+    <div class="letter-content">
+      <div style="font-size:50px">💗</div><div class="section-tag">my little surprise</div>
+      <h2>You are loved.</h2>
+      <p class="message">Not just today. Not just when everything is perfect.<br>In all the small, ordinary, beautiful moments too.</p>
+      <div class="signature">And that's my little letter to you. ♡</div>
+      <div class="actions"><button class="btn secondary" id="restartBtn">Read it again ↺</button></div>
+    </div>
+  </section>
+  <footer>made with a little love & a lot of heart ♡</footer>
+</main>
+<button id="musicBtn" title="Toggle music" aria-label="Toggle music">♫</button>
+<script>
+const envelope=document.getElementById('envelope'), wrap=document.getElementById('envelopeWrap');
+const letter=document.getElementById('letterSection'), memories=document.getElementById('memoriesSection'), surprise=document.getElementById('surpriseSection');
+wrap.addEventListener('click',()=>{
+ envelope.classList.add('open');document.getElementById('openHint').textContent='your letter is opening…';
+ setTimeout(()=>{letter.classList.remove('hidden');letter.scrollIntoView({behavior:'smooth',block:'center'});},550);
+});
+document.getElementById('memoriesBtn').onclick=()=>{memories.classList.remove('hidden');memories.scrollIntoView({behavior:'smooth',block:'center'});};
+document.getElementById('surpriseBtn').onclick=()=>{surprise.classList.remove('hidden');surprise.scrollIntoView({behavior:'smooth',block:'center'});hearts(24);};
+document.getElementById('restartBtn').onclick=()=>{envelope.classList.remove('open');letter.classList.add('hidden');memories.classList.add('hidden');surprise.classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'});document.getElementById('openHint').textContent='tap the envelope to open it ↓';};
+function hearts(n=1){for(let i=0;i<n;i++){let h=document.createElement('div');h.className='float-heart';h.textContent=['♡','♥','✧','💕'][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*22)+'px';h.style.animationDuration=(4+Math.random()*5)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),9000);}}
+setInterval(()=>hearts(),1100);
+// A gentle, original synthesized chime (no external audio required)
+let audioCtx, playing=false;
+document.getElementById('musicBtn').onclick=()=>{
+ if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+ if(audioCtx.state==='suspended')audioCtx.resume();
+ playing=!playing;document.getElementById('musicBtn').textContent=playing?'♪':'♫';
+ if(playing)chime();
+};
+function chime(){if(!playing)return;const now=audioCtx.currentTime;[523.25,659.25,783.99].forEach((f,i)=>{let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=f;o.connect(g);g.connect(audioCtx.destination);g.gain.setValueAtTime(.0001,now+i*.18);g.gain.exponentialRampToValueAtTime(.045,now+i*.18+.03);g.gain.exponentialRampToValueAtTime(.0001,now+i*.18+.35);o.start(now+i*.18);o.stop(now+i*.18+.4);});setTimeout(chime,2200);}
+</script>
+</body>
+</html>
